@@ -72,11 +72,6 @@ RUN sudo apt-get update && sudo apt-get install -y nodejs npm --no-install-recom
 # see http://guides.rubyonrails.org/command_line.html#rails-dbconsole
 RUN sudo apt-get update && sudo apt-get install -y mysql-client postgresql-client sqlite3 --no-install-recommends && sudo rm -rf /var/lib/apt/lists/*
 
-# set defaults for `rails new`
-RUN echo '-B' >> ~/.railsrc \
-    && echo '-T' >> ~/.railsrc \
-    && echo '-d postgresql' >> ~/.railsrc
-
 RUN sudo gem install rails --version "$RAILS_VERSION"
 
 EXPOSE 3000
